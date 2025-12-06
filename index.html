@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Light Effect</title>
+
+  <style>
+    :root {
+      --x: 50vw;
+      --y: 50vh;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #fff;
+      font-family: serif;
+    }
+
+    h1 {
+      font-size: 100px;
+      font-weight: bold;
+      text-shadow: 0 0 20px #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Light / spotlight */
+    .light {
+      position: fixed;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0) 70%);
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+      transform: translate(-50%, -50%);
+      left: var(--x);
+      top: var(--y);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="light"></div>
+  <h1>Light</h1>
+
+  <script>
+    const light = document.querySelector('.light');
+
+    function moveLight(x, y) {
+      light.style.setProperty('--x', x + 'px');
+      light.style.setProperty('--y', y + 'px');
+    }
+
+    // Mouse move (PC / Laptop)
+    window.addEventListener('mousemove', (e) => {
+      moveLight(e.clientX, e.clientY);
+    });
+
+    // Touch start (mobile e hat rakhar sathe sathe)
+    window.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+      moveLight(touch.clientX, touch.clientY);
+    });
+
+    // Touch move (mobile e hat saraile light follow korbe)
+    window.addEventListener('touchmove', (e) => {
+      const touch = e.touches[0];
+      moveLight(touch.clientX, touch.clientY);
+    });
+  </script>
+</body>
+</html>
