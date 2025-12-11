@@ -1,0 +1,15 @@
+h1 {
+	color: red;
+	text-align: center;
+	border-bottom: 3px dotted blue;
+	border-top: 4px outset black;
+	border-left: 4px dashed yellow;	
+}
+tr,th,td {
+	border: 1px solid black;
+}
+.aee {
+	colot: red;
+	text-align: right;
+	display: block;
+}
