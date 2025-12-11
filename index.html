@@ -1,86 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Light Effect</title>
-
-  <style>
-    :root {
-      --x: 50vw;
-      --y: 50vh;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #000;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: #fff;
-      font-family: serif;
-    }
-
-    h1 {
-      font-size: 100px;
-      font-weight: bold;
-      text-shadow: 0 0 20px #fff;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Light / spotlight */
-    .light {
-      position: fixed;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0) 70%);
-      pointer-events: none;
-      mix-blend-mode: soft-light;
-      transform: translate(-50%, -50%);
-      left: var(--x);
-      top: var(--y);
-      z-index: 0;
-    }
-  </style>
+  <link rel="icon" href="others/favicon.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Zxweb Sign Up</title>
 </head>
 <body>
 
-  <div class="light"></div>
-  <h1>Hey👋</h1>
+<h1 style="color: white; text-align: center; background-color: black;">
+  Zxweb Sign Up
+</h1>
 
-  <script>
-    const light = document.querySelector('.light');
+<form action="webpage/promo.html" method="POST">
+  <fieldset>
+    <legend>Sign Up</legend>
 
-    function moveLight(x, y) {
-      light.style.setProperty('--x', x + 'px');
-      light.style.setProperty('--y', y + 'px');
-    }
+    <h2>Submit your personal info:</h2>
 
-    // Mouse move (PC / Laptop)
-    window.addEventListener('mousemove', (e) => {
-      moveLight(e.clientX, e.clientY);
-    });
+    <!-- Name -->
+    <label for="ll"><b>Name</b></label>
+    <input name="user" id="ll" type="text" placeholder="Enter Your Name" required>
+    <br><br>
 
-    // Touch start (mobile e hat rakhar sathe sathe)
-    window.addEventListener('touchstart', (e) => {
-      const touch = e.touches[0];
-      moveLight(touch.clientX, touch.clientY);
-    });
+    <!-- Birth Day -->
+    <b>Birth Day</b>
+    <input name="birthday" type="date" required>
+    <br><br>
 
-    // Touch move (mobile e hat saraile light follow korbe)
-    window.addEventListener('touchmove', (e) => {
-      const touch = e.touches[0];
-      moveLight(touch.clientX, touch.clientY);
-    });
-  </script>
+    <!-- Number -->
+    <label for="pp"><b>Number</b></label>
+    <input name="number" id="pp" type="number" placeholder="Enter Your Mobile Number" required>
+    <br><br>
+
+    <!-- Email -->
+    <label for="jj"><b>Email</b></label>
+    <input name="email" id="jj" type="email" placeholder="Enter Your Email" required>
+    <br><br>
+
+    <!-- Password -->
+    <label for="tt"><b>Password</b></label>
+    <input name="password" id="tt" type="password" placeholder="Enter Password" required>
+    <br><br>
+
+    <!-- OTP -->
+    <b>OTP</b>
+    <input name="otp_code" type="text" placeholder="Enter Your OTP">
+    <br><br>
+
+    <!-- OTP Send Option -->
+    <b>Where should I send your OTP?</b><br>
+
+    <label>
+      <input name="otp_send" value="email" type="radio" required> OTP Email
+    </label>
+
+    <label>
+      <input name="otp_send" value="number" type="radio"> OTP Number
+    </label>
+    <br><br>
+
+    <input type="submit" value="Send OTP">
+    <br><br>
+
+    <!-- Gender -->
+    <b>Gender:</b><br>
+    <label><input name="gender" value="male" type="radio" required> Male</label><br>
+    <label><input name="gender" value="female" type="radio"> Female</label><br>
+    <label><input name="gender" value="others" type="radio"> Others</label><br><br>
+
+    <!-- Occupation -->
+    <h4>What do you do?</h4>
+    <label><input name="work" value="student" type="radio" required> Student</label><br>
+    <label><input name="work" value="worker" type="radio"> Worker</label><br>
+    <label><input name="work" value="business" type="radio"> Business</label><br>
+    <label><input name="work" value="others" type="radio"> Others</label><br><br>
+
+    <!-- Checkboxes -->
+    <h4>Why Using This Site?</h4>
+
+    <label><input name="reason_personal" type="checkbox"> Personal use</label><br>
+    <label><input name="reason_business" type="checkbox"> Business purpose</label><br>
+    <label><input name="reason_school" type="checkbox"> School project</label><br>
+    <label><input name="reason_portfolio" type="checkbox"> Portfolio</label><br>
+    <label><input name="reason_kids" type="checkbox"> For kids</label><br>
+    <label><input name="reason_fun" type="checkbox"> For fun</label><br><br>
+
+    <!-- File Upload -->
+    <b>Choose Your Photo (Optional)</b>
+    <input name="photo" type="file">
+    <br><br>
+
+    <!-- Terms -->
+    <label>
+      <input type="checkbox" required> I agree to this website's 
+      <a href="webpage/terms.html">Terms & Policy</a>
+    </label>
+    <br><br>
+
+    <!-- Correct Submit Button -->
+    <button type="submit" onclick="window.location.href='webpage/promo.html'">Sign Up</button>
+
+  </fieldset>
+</form>
+
 </body>
 </html>
